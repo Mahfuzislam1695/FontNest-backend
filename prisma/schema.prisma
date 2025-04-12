@@ -1,0 +1,36 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Font {
+    id        String          @id @default(uuid())
+    name      String
+    filename  String
+    path      String
+    createdAt DateTime        @default(now())
+    updatedAt DateTime        @updatedAt
+    groups    FontGroupFont[]
+}
+
+model FontGroup {
+    id        String          @id @default(uuid())
+    title     String
+    fonts     FontGroupFont[]
+    createdAt DateTime        @default(now())
+    updatedAt DateTime        @updatedAt
+}
+
+model FontGroupFont {
+    font      Font      @relation(fields: [fontId], references: [id])
+    fontId    String
+    group     FontGroup @relation(fields: [groupId], references: [id])
+    groupId   String
+    createdAt DateTime  @default(now())
+
+    @@id([fontId, groupId])
+}
