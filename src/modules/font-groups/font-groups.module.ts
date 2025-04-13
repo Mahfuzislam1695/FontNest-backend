@@ -1,12 +1,13 @@
+// src/font-groups/font-groups.module.ts
 import { Module } from '@nestjs/common';
 import { FontGroupsService } from './font-groups.service';
 import { FontGroupsController } from './font-groups.controller';
 import { PrismaModule } from '../prisma/prisma.module';
-import { IsValidFontArray } from './validators/font-array.validator';
 
 @Module({
-  imports: [PrismaModule], // Add this line
+  imports: [PrismaModule],
   controllers: [FontGroupsController],
-  providers: [FontGroupsService, IsValidFontArray],
+  providers: [FontGroupsService],
+  exports: [FontGroupsService]
 })
 export class FontGroupsModule { }
