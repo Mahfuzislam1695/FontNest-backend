@@ -7,6 +7,7 @@ import { AppService } from './app.service';
 import { StorageModule } from './storage/storage.module';
 import { PrismaModule } from './modules/prisma/prisma.module';
 import { FontsModule } from './modules/font/font.module';
+import { FontGroupsModule } from './modules/font-groups/font-groups.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { FontsModule } from './modules/font/font.module';
     PrismaModule,
     FontsModule,
     StorageModule,
+    FontGroupsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
