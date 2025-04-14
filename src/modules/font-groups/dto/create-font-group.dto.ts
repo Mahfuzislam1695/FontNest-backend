@@ -19,6 +19,6 @@ export class CreateFontGroupDto {
     @IsArray()
     // @MinLength(2, { message: 'You must select at least 2 fonts' })
     @IsUUID(4, { each: true, message: 'Each font must be a valid UUID' })
-    @Transform(({ value }) => Array.isArray(value) ? [...new Set(value)] : value) // Remove duplicates
+    @Transform(({ value }) => Array.isArray(value) ? [...new Set(value)] : value)
     fonts: string[];
 }
