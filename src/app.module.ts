@@ -20,7 +20,7 @@ import { FontGroupsModule } from './modules/font-groups/font-groups.module';
         const uploadPath = config.get<string>('storage.destination', './uploads');
         return [{
           rootPath: join(__dirname, '..', uploadPath),
-          serveRoot: '/fonts',
+          serveRoot: '/uploads',
         }];
       },
       inject: [ConfigService],
